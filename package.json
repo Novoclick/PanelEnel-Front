@@ -4,21 +4,36 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "ng build --base-href \"/panelEnel/\" --prod",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
   },
+  "browser": {
+    "http": false,
+    "https": false,
+    "net": false,
+    "path": false,
+    "stream": false,
+    "tls": false
+  },
   "private": true,
   "dependencies": {
     "@angular/animations": "~10.1.0",
+    "@angular/cdk": "^10.2.0",
     "@angular/common": "~10.1.0",
     "@angular/compiler": "~10.1.0",
     "@angular/core": "~10.1.0",
     "@angular/forms": "~10.1.0",
+    "@angular/material": "^10.2.0",
     "@angular/platform-browser": "~10.1.0",
     "@angular/platform-browser-dynamic": "~10.1.0",
     "@angular/router": "~10.1.0",
+    "bootstrap": "^4.5.2",
+    "chart.js": "^2.9.3",
+    "exceljs": "^1.12.0",
+    "file-saver": "^2.0.2",
+    "ng2-charts": "^2.4.1",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.2"

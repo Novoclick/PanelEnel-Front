@@ -1,0 +1,52 @@
+<h1 class="text-center">Panel de Cliente</h1>
+<div>
+  <div>
+    <div style="display: block;">
+      <canvas baseChart
+      [data]="doughnutChartData"
+      [labels]="doughnutChartLabels"
+      [colors]="colors"
+      [chartType]="doughnutChartType"
+      [options]="options" >
+    </canvas>
+  </div>
+</div>
+</div>
+<button type="button" class="btn btn-success" (click)="generateExcel()"> <i class="fas fa-save"></i> Excel</button>
+<div class="example-container mat-elevation-z8">  
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+    <ng-container matColumnDef="fechaEntrega">
+      <th mat-header-cell *matHeaderCellDef> Fecha Recibido </th>
+      <td mat-cell *matCellDef="let element"> {{element.fechaEntrega | date}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="fechaGestion">
+      <th mat-header-cell *matHeaderCellDef> Fecha Gestion </th>
+      <td mat-cell *matCellDef="let element"> {{element.fechaGestion | date}} </td>
+    </ng-container>
+    
+    <ng-container matColumnDef="empresa">
+      <th mat-header-cell *matHeaderCellDef> Empresa </th>
+      <td mat-cell *matCellDef="let element"> {{element.empresa}} </td>
+    </ng-container>
+    
+    <ng-container matColumnDef="tipoDocumento">
+      <th mat-header-cell *matHeaderCellDef> Tipo Documento </th>
+      <td mat-cell *matCellDef="let element"> {{element.tipoDocumento}} </td>
+    </ng-container>
+    
+    <ng-container matColumnDef="nit">
+      <th mat-header-cell *matHeaderCellDef> Nit </th>
+      <td mat-cell *matCellDef="let element"> {{element.nit}} </td>
+    </ng-container>
+    
+    <ng-container matColumnDef="observaciones">
+      <th mat-header-cell *matHeaderCellDef> Observaciones </th>
+      <td mat-cell *matCellDef="let element"> {{element.observaciones}} </td>
+    </ng-container>
+    
+    <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="select(row)"></tr>
+  </table>
+</div>

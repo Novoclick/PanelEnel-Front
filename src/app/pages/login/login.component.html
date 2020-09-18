@@ -1,0 +1,14 @@
+<div class="body"></div>
+<div class="grad"></div>
+<div class="header">
+    <div>Panel<span>Enel</span></div>
+</div>
+<br>
+<div class="login">
+    <div class="alert alert-danger" style="width: 250px;" *ngIf="error">
+       Usuario o contraseña erroneos
+    </div>
+    <input type="text" [(ngModel)]="user" placeholder="username" name="user"><br>
+    <input type="password" [(ngModel)]="password" placeholder="password" name="password"><br>
+    <input type="button" value="Login" (click)="goToTable()">
+</div>
