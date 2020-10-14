@@ -1,5 +1,5 @@
 ---
 deployment:
   tasks:
-    - export DEPLOYPATH=/home1/safecontact/public_html/panelEnelDeploy/
+    - export DEPLOYPATH=/home1/safecontact/public_html/panelEnel/
     - /bin/cp -R dist/panelEnel/* $DEPLOYPATH
