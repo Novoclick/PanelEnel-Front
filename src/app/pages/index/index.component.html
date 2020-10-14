@@ -4,7 +4,7 @@
 </nav>
 
 <div class="row my-2 ml-1">
-  <button class="btn btn-primary" type="button" (click)="cambiarVerGrafico()"> <i class="fas fa-chart-pie"></i> Ver/Ocultar Gráfico</button>
+  <button class="btn btn-primary" type="button" (click)="cambiarVerGrafico()"> <i class="fas fa-chart-pie"></i> Ver/Ocultar Leads por producto</button>
 </div>
 
 <div class="row justify-content-center" *ngIf="verGrafico">
@@ -16,8 +16,7 @@
         [data]="doughnutChartData"
         [labels]="doughnutChartLabels"
         [colors]="colors"
-        [chartType]="doughnutChartType"
-        [options]="options">
+        [chartType]="doughnutChartType">
       </canvas>
     </div>
   </div>
@@ -25,13 +24,13 @@
     <table class="table table-sm" style="font-size: 10px;">
       <thead>
         <tr>
-          <th row="scope">Nombre</th>
-          <th row="scope">Total</th>
+          <th row="scope">NOMBRE</th>
+          <th row="scope">TOTAL</th>
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let item of products">
-          <td> {{ item.nombrecampana }}</td>
+          <td> {{ item.nombrecampana | uppercase }}</td>
           <td> {{ item.count }}</td>
         </tr>
       </tbody>
@@ -39,6 +38,43 @@
   </div>
 </div>
 </div>
+
+<div class="row my-2 ml-1">
+  <button class="btn btn-primary" type="button" (click)="cambiarVerGraficoLeadsMes()"> <i class="fas fa-chart-pie"></i> Ver/Ocultar Leads por mes</button>
+</div>
+
+<div class="row justify-content-center" *ngIf="verGraficoLeadsMes">
+  <div class="row mt-2">
+    <div class="col-10">
+      <h3>Leads por Mes</h3>
+      <div style="display: block;">
+        <canvas baseChart
+        [data]="doughnutChartDataLeads"
+        [labels]="doughnutChartLabelsLeads"
+        [colors]="colorsLeads"
+        [chartType]="doughnutChartTypeLeads">
+      </canvas>
+    </div>
+  </div>
+  <div class="col-2">
+    <table class="table table-sm" style="font-size: 10px;">
+      <thead>
+        <tr>
+          <th row="scope">MES</th>
+          <th row="scope">TOTAL</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of mesLeads">
+          <td> {{ item.mes | uppercase }}</td>
+          <td> {{ item.count }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+</div>
+
 <button type="button" class="btn btn-success" (click)="generateExcel()"> <i class="fas fa-save"></i> Excel</button>
 <mat-form-field>
   <mat-label >Buscar</mat-label>
@@ -49,7 +85,7 @@
   <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
     
     <ng-container matColumnDef="fechaEntrega">
-      <th mat-header-cell *matHeaderCellDef> Fecha Recibido </th>
+      <th mat-header-cell *matHeaderCellDef> Fecha Entrega </th>
       <td mat-cell *matCellDef="let element"> {{element.fechaEntrega | date}} </td>
     </ng-container>
     
@@ -71,6 +107,7 @@
     <ng-container matColumnDef="nit">
       <th mat-header-cell *matHeaderCellDef> Nit </th>
       <td mat-cell *matCellDef="let element"> {{element.nit}} </td>
+      
     </ng-container>
     
     <ng-container matColumnDef="observaciones">

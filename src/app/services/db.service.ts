@@ -25,4 +25,9 @@ export class DbService {
     const url = '/GetFildsNoShow';
     return this.broker.Get(url);
   }
+
+  getLeadsMonth(){
+    const url = '/GetLeadsMonth';
+    return this.broker.Get(url);
+  }
 }

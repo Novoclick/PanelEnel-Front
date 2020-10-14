@@ -62,4 +62,9 @@ export interface camposNoMostrar {
     campo: string;
 }
 
+export interface mesLeads {
+    mes: string;
+    count: SingleDataSet;
+}
+
 
