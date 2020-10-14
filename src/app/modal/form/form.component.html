@@ -1,21 +1,23 @@
-<h1 mat-dialog-title>{{ data.data.empresa}}</h1>
-<div mat-dialog-content>
-
+<h1 class="text-center" mat-dialog-title>{{ data.data.empresa}}</h1>
+<div>
+  
   <!--
-          <mat-form-field appearance="legacy" *ngFor="let item of data.nombreCampos">
-          <mat-label> {{ item }} </mat-label>
-          <input disabled  matInput [value]=data.data[item]>
-        </mat-form-field>
-      -->
-  <div class="row" *ngFor="let item of data.nombreCampos">
-
-    <div style="width:30%; display:inline-block; vertical-align: top;">
-      {{ item }}
-    </div>
-    <div style="width:50%; display:inline-block; vertical-align: top;">
-      {{ data.data[item] }}
-    </div>
-  </div>
-
-
+    <mat-form-field appearance="legacy" *ngFor="let item of data.nombreCampos">
+      <mat-label> {{ item }} </mat-label>
+      <input disabled  matInput [value]=data.data[item]>
+    </mat-form-field>
+  -->
+  <table class="table">
+    <tbody> 
+      <tr *ngFor="let item of data.nombreCampos">
+        <th scope="row" > {{ item | uppercase }} </th>
+        <td *ngIf="item !== 'fechaEntrega'">  {{ data.data[item] | uppercase }} </td>
+        <td *ngIf="item === 'fechaEntrega'">  {{ data.data[item] | date }} </td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  
+  
 </div>

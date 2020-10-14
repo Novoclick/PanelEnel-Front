@@ -6,3 +6,11 @@
   table {
     width: 100%;
   }
+  .mat-dialog-container{
+    height: 700px !important;
+  }
+
+  mat-form-field {
+    margin-left: 10px;
+    width: 200px;
+  }

@@ -15,6 +15,7 @@ import { MatInputModule  } from '@angular/material/input';
 import { LoginComponent } from './pages/login/login.component';
 import { IndexComponent } from './pages/index/index.component';
 import { ChartsModule } from 'ng2-charts';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import { ChartsModule } from 'ng2-charts';
     MatFormFieldModule,
     MatInputModule,
     ChartsModule,
-    FormsModule
+    FormsModule,
+    NgxSpinnerModule
   ],
   providers: [DatePipe],
   bootstrap: [AppComponent]
