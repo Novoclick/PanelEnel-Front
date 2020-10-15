@@ -45,15 +45,6 @@ export class IndexComponent implements OnInit {
   dataSourceLeads = new MatTableDataSource();
   doughnutChartLabelsLeads: Label[] = [];
   doughnutChartDataLeads: MultiDataSet = [];
-  doughnutChartTypeLeads: ChartType = 'doughnut';
-  colorsLeads : Color[] = [
-    {
-      backgroundColor: [
-        'rgba(255,0,0,0.3)', 'rgba(0,255,0,0.3)', 'rgba(0,0,255,0.3)', 
-        'rgba(332,32,222,0.3)', 'rgba(85,33,21,0.3)', 'yellow'
-      ],
-    },
-  ];
   
   verGrafico: boolean = false;
   camposNoMostrar: Array<camposNoMostrar>;

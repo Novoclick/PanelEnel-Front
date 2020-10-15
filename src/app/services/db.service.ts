@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BrokerService } from './broker.service';
-import { registro, responseModal } from '../models/register.model';
+
 
 @Injectable({
   providedIn: 'root'
